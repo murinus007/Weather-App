@@ -10,9 +10,6 @@
 		0A66F35999222985CB5E393D /* Pods_Weather_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B602ED3F9C40B46553089572 /* Pods_Weather_App.framework */; };
 		AD70A7A52732F35400B6E4FA /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70A7A42732F35400B6E4FA /* ResultsViewController.swift */; };
 		AD70A7A727342C7400B6E4FA /* GooglePlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70A7A627342C7400B6E4FA /* GooglePlacesManager.swift */; };
-		AD70A7A9273D47AF00B6E4FA /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70A7A8273D47AF00B6E4FA /* File.swift */; };
-		AD70A7AD27429EFB00B6E4FA /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD70A7AC27429EFB00B6E4FA /* MyTableViewCell.xib */; };
-		AD70A7AF27429F4D00B6E4FA /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70A7AE27429F4D00B6E4FA /* MyTableViewCell.swift */; };
 		AD8A06A82732B10C00032479 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A06A72732B10C00032479 /* SelectLocationViewController.swift */; };
 		ADDDE954272AF4FE0064AC7D /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDE953272AF4FE0064AC7D /* Weather.swift */; };
 		ADE80C3B2728503B00867A35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE80C3A2728503B00867A35 /* AppDelegate.swift */; };
@@ -29,9 +26,6 @@
 		3E35ED16EB64B024E2C16CA4 /* Pods-Weather App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather App.release.xcconfig"; path = "Target Support Files/Pods-Weather App/Pods-Weather App.release.xcconfig"; sourceTree = "<group>"; };
 		AD70A7A42732F35400B6E4FA /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		AD70A7A627342C7400B6E4FA /* GooglePlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesManager.swift; sourceTree = "<group>"; };
-		AD70A7A8273D47AF00B6E4FA /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		AD70A7AC27429EFB00B6E4FA /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
-		AD70A7AE27429F4D00B6E4FA /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		AD8A06A72732B10C00032479 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		ADDDE953272AF4FE0064AC7D /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		ADE80C372728503B00867A35 /* Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,9 +126,6 @@
 				ADE80C432728503D00867A35 /* Assets.xcassets */,
 				ADE80C452728503D00867A35 /* LaunchScreen.storyboard */,
 				ADE80C482728503D00867A35 /* Info.plist */,
-				AD70A7A8273D47AF00B6E4FA /* File.swift */,
-				AD70A7AC27429EFB00B6E4FA /* MyTableViewCell.xib */,
-				AD70A7AE27429F4D00B6E4FA /* MyTableViewCell.swift */,
 			);
 			path = "Weather App";
 			sourceTree = "<group>";
@@ -199,7 +190,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADE80C472728503D00867A35 /* LaunchScreen.storyboard in Resources */,
-				AD70A7AD27429EFB00B6E4FA /* MyTableViewCell.xib in Resources */,
 				ADE80C442728503D00867A35 /* Assets.xcassets in Resources */,
 				ADE80C422728503B00867A35 /* Main.storyboard in Resources */,
 			);
@@ -257,12 +247,10 @@
 				ADDDE954272AF4FE0064AC7D /* Weather.swift in Sources */,
 				ADE80C4F27285BB800867A35 /* WeatherService.swift in Sources */,
 				ADE80C3F2728503B00867A35 /* MainViewController.swift in Sources */,
-				AD70A7AF27429F4D00B6E4FA /* MyTableViewCell.swift in Sources */,
 				AD70A7A52732F35400B6E4FA /* ResultsViewController.swift in Sources */,
 				AD70A7A727342C7400B6E4FA /* GooglePlacesManager.swift in Sources */,
 				ADE80C3B2728503B00867A35 /* AppDelegate.swift in Sources */,
 				ADE80C3D2728503B00867A35 /* SceneDelegate.swift in Sources */,
-				AD70A7A9273D47AF00B6E4FA /* File.swift in Sources */,
 				AD8A06A82732B10C00032479 /* SelectLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

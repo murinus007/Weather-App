@@ -15,6 +15,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, ResultsVi
         })
     }
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -62,6 +63,16 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, ResultsVi
         pressureLabel.text = "pressure: " + String(weather.main.pressure) + " mbar"
         sunriseLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: weather.sys?.sunrise ?? 0))
         sunsetLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: weather.sys?.sunset ?? 0))
+        changeBackgroundImage(weather: weather)
+    }
+    
+    func changeBackgroundImage(weather: Weather) {
+        let date = Date()
+        if date.timeIntervalSince1970 > weather.sys?.sunset ?? 0 {
+            backgroundImageView.image = UIImage(named: "night_img")
+        } else {
+            backgroundImageView.image = UIImage(named: "day_img")
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

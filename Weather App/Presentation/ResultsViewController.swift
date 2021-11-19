@@ -13,7 +13,6 @@ protocol ResultsViewControllerDelegate: AnyObject {
 }
 
 class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let array: [[String]] = [["Lesha", "Doom"], ["Vika"], ["sazimay"]]
     
     weak var delegate: ResultsViewControllerDelegate?
     
@@ -43,13 +42,9 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.places = places
         tableView.reloadData()
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return array.count
-    }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array[section].count
+        return places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

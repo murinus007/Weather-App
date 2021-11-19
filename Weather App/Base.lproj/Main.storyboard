@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gj1-SN-nYW">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[City]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8K-C3-ib6">
                                 <rect key="frame" x="185.33333333333334" y="144" width="57.666666666666657" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -102,11 +105,15 @@
                         <constraints>
                             <constraint firstItem="xYR-5Y-7nn" firstAttribute="top" secondItem="H7y-9m-VbG" secondAttribute="bottom" constant="8" id="2wD-ub-w6A"/>
                             <constraint firstItem="6Af-Ao-KiS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5A7-Fd-qmg"/>
+                            <constraint firstItem="gj1-SN-nYW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Rb-bA-jFa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gj1-SN-nYW" secondAttribute="trailing" id="9a1-bJ-dwj"/>
+                            <constraint firstItem="gj1-SN-nYW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Bzx-Sh-GWX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TqW-xo-XVh" secondAttribute="trailing" constant="16" id="DRZ-g0-3ge"/>
                             <constraint firstItem="pA1-xa-Sg7" firstAttribute="top" secondItem="fvN-FA-EsM" secondAttribute="bottom" constant="32" id="JtS-Aw-kdD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TqW-xo-XVh" secondAttribute="bottom" constant="50" id="NEk-lR-wJm"/>
                             <constraint firstItem="xYR-5Y-7nn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Njt-vj-zPX"/>
                             <constraint firstItem="I2X-Fi-vDC" firstAttribute="top" secondItem="6Af-Ao-KiS" secondAttribute="bottom" constant="32" id="Rpb-Vl-uBb"/>
+                            <constraint firstAttribute="bottom" secondItem="gj1-SN-nYW" secondAttribute="bottom" id="UVB-CD-8Eq"/>
                             <constraint firstItem="L8K-C3-ib6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="apb-8G-mHE"/>
                             <constraint firstItem="fvN-FA-EsM" firstAttribute="top" secondItem="xYR-5Y-7nn" secondAttribute="bottom" constant="8" id="dc4-iR-X9e"/>
                             <constraint firstItem="6Af-Ao-KiS" firstAttribute="top" secondItem="pA1-xa-Sg7" secondAttribute="bottom" constant="8" id="e8e-vh-xVl"/>
@@ -119,6 +126,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImageView" destination="gj1-SN-nYW" id="hbQ-sd-AIv"/>
                         <outlet property="cityLabel" destination="L8K-C3-ib6" id="kLs-Gj-1p1"/>
                         <outlet property="descriptionLabel" destination="xYR-5Y-7nn" id="Qtp-ko-xuu"/>
                         <outlet property="humidityLabel" destination="pA1-xa-Sg7" id="6vj-jt-plN"/>
