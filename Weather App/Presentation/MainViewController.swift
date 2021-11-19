@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class MainViewController: UIViewController, CLLocationManagerDelegate, ResultsViewControllerDelegate {
+class MainViewController: UIViewController, CLLocationManagerDelegate, MainViewControllerDelegate {
     func didTapPlace(with location: CLLocation) {
         weatherService.getCurrentLocationWeather(location: location, completion: { [weak self] weather in
             self?.configureUI(with: weather)

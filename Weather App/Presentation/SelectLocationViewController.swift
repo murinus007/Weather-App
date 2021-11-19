@@ -8,16 +8,39 @@
 import UIKit
 import CoreLocation
 
+protocol MainViewControllerDelegate: AnyObject {
+    func didTapPlace(with location: CLLocation)
+}
+
 class SelectLocationsViewController: UIViewController, UISearchResultsUpdating {
     let searchVC = UISearchController(searchResultsController: ResultsViewController())
-    weak var delegate: ResultsViewControllerDelegate?
+    weak var delegate: MainViewControllerDelegate?
+    
+    private var places: [Place] = []
+    
+    private let tableView: UITableView = {
+        let table = UITableView()
+      
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return table
+    }()
     
     override func viewDidLoad() {
-        title = "hello"
+        navigationItem.leftBarButtonItem = .init(title: "back", style: .done, target: self, action: #selector(close))
         searchVC.searchResultsUpdater = self
         navigationItem.searchController = searchVC
-
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.frame = view.frame
         
+        places = getPlaces()
+        tableView.reloadData()
+
+    }
+    
+    @objc func close() {
+        navigationController?.dismiss(animated: true)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -40,11 +63,79 @@ class SelectLocationsViewController: UIViewController, UISearchResultsUpdating {
             }
         }
     }
+    
+    func getPlaces() -> [Place] {
+        if let data = UserDefaults.standard.data(forKey: "places") {
+            do {
+                let decoder = JSONDecoder()
+                let places = try decoder.decode([Place].self, from: data)
+                return places
+            } catch {
+                print("Unable to Decode Place (\(error))")
+            }
+        }
+        return []
+    }
+    
+    func store(place: Place) {
+        
+        do {
+            let encoder = JSONEncoder()
+            var places = getPlaces()
+            places.append(place)
+            let data = try encoder.encode(places)
+            UserDefaults.standard.set(data, forKey: "places")
+
+        } catch {
+            print("Unable to Encode Place (\(error))")
+        }
+    }
 }
 
 extension SelectLocationsViewController: ResultsViewControllerDelegate {
-    func didTapPlace(with location: CLLocation) {
-        delegate?.didTapPlace(with: location)
+    func didTapPlace(with place: Place) {
+        store(place: place)
+        GooglePlacesManager.shared.resolveLocation(for: place) { [weak self] result in
+            switch result {
+            case .success(let location):
+                DispatchQueue.main.async {
+                    self?.delegate?.didTapPlace(with: location)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
         navigationController?.dismiss(animated: true)
+    }
+}
+
+extension SelectLocationsViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return places.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = places[indexPath.row].name
+        return cell
+    }
+
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.isHidden = true
+        let place = places[indexPath.row]
+        GooglePlacesManager.shared.resolveLocation(for: place) { [weak self] result in
+            switch result {
+            case .success(let location):
+                DispatchQueue.main.async {
+                    self?.delegate?.didTapPlace(with: location)
+                    self?.navigationController?.dismiss(animated: true)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

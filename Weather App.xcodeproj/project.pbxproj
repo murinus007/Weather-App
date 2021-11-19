@@ -10,6 +10,7 @@
 		0A66F35999222985CB5E393D /* Pods_Weather_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B602ED3F9C40B46553089572 /* Pods_Weather_App.framework */; };
 		AD70A7A52732F35400B6E4FA /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70A7A42732F35400B6E4FA /* ResultsViewController.swift */; };
 		AD70A7A727342C7400B6E4FA /* GooglePlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70A7A627342C7400B6E4FA /* GooglePlacesManager.swift */; };
+		AD70A7B12747E34E00B6E4FA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70A7B02747E34E00B6E4FA /* Place.swift */; };
 		AD8A06A82732B10C00032479 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A06A72732B10C00032479 /* SelectLocationViewController.swift */; };
 		ADDDE954272AF4FE0064AC7D /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDE953272AF4FE0064AC7D /* Weather.swift */; };
 		ADE80C3B2728503B00867A35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE80C3A2728503B00867A35 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		3E35ED16EB64B024E2C16CA4 /* Pods-Weather App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather App.release.xcconfig"; path = "Target Support Files/Pods-Weather App/Pods-Weather App.release.xcconfig"; sourceTree = "<group>"; };
 		AD70A7A42732F35400B6E4FA /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		AD70A7A627342C7400B6E4FA /* GooglePlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesManager.swift; sourceTree = "<group>"; };
+		AD70A7B02747E34E00B6E4FA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		AD8A06A72732B10C00032479 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		ADDDE953272AF4FE0064AC7D /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		ADE80C372728503B00867A35 /* Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				ADDDE953272AF4FE0064AC7D /* Weather.swift */,
+				AD70A7B02747E34E00B6E4FA /* Place.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				AD70A7A52732F35400B6E4FA /* ResultsViewController.swift in Sources */,
 				AD70A7A727342C7400B6E4FA /* GooglePlacesManager.swift in Sources */,
 				ADE80C3B2728503B00867A35 /* AppDelegate.swift in Sources */,
+				AD70A7B12747E34E00B6E4FA /* Place.swift in Sources */,
 				ADE80C3D2728503B00867A35 /* SceneDelegate.swift in Sources */,
 				AD8A06A82732B10C00032479 /* SelectLocationViewController.swift in Sources */,
 			);

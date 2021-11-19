@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 
 protocol ResultsViewControllerDelegate: AnyObject {
-    func didTapPlace(with location: CLLocation)
+    func didTapPlace(with place: Place)
 }
 
 class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -58,16 +58,6 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.isHidden = true
         let place = places[indexPath.row]
-        GooglePlacesManager.shared.resolveLocation(for: place) { [weak self] result in
-            switch result {
-            case .success(let location):
-                DispatchQueue.main.async {
-                    self?.delegate?.didTapPlace(with: location)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
+        delegate?.didTapPlace(with: place)
     }
 }

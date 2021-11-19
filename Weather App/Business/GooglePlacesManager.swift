@@ -9,10 +9,6 @@ import Foundation
 import GooglePlaces
 import CoreLocation
 
-struct Place {
-    let name: String
-    let id: String
-}
 
 final class GooglePlacesManager {
     static let shared = GooglePlacesManager()
