@@ -35,6 +35,7 @@ class SelectLocationsViewController: UIViewController, UISearchResultsUpdating {
         tableView.frame = view.frame
         
         places = getPlaces()
+        navigationItem.hidesSearchBarWhenScrolling = false
         tableView.reloadData()
 
     }
@@ -90,6 +91,17 @@ class SelectLocationsViewController: UIViewController, UISearchResultsUpdating {
             print("Unable to Encode Place (\(error))")
         }
     }
+    
+    func delete(place: Place) {
+        do {
+        let encoder = JSONEncoder()
+        places.removeAll { $0.id == place.id }
+        let data = try encoder.encode(places)
+        UserDefaults.standard.set(data, forKey: "places")
+        } catch {
+            print("Unable to Encode Place (\(error))")
+        }
+    }
 }
 
 extension SelectLocationsViewController: ResultsViewControllerDelegate {
@@ -136,6 +148,14 @@ extension SelectLocationsViewController: UITableViewDataSource, UITableViewDeleg
             case .failure(let error):
                 print(error)
             }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            delete(place: places[indexPath.row])
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
         }
     }
 }

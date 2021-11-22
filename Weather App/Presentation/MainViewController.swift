@@ -79,6 +79,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MainViewC
         weatherService.getCurrentLocationWeather(location: locations.first,
                                                  completion: { [weak self] weather in
             self?.configureUI(with: weather)
+            self?.locationManager.stopUpdatingLocation()
         })
     }
 
