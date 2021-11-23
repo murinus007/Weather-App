@@ -26,6 +26,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MainViewC
     @IBOutlet weak var sunriseLabel: UILabel!
     @IBOutlet weak var sunsetLabel: UILabel!
     
+    
+    @IBOutlet var labels: [UILabel]!
+    
+    @IBOutlet var buttons: [UIButton]!
+    
+    @IBAction func currentLocation(_ sender: Any) {
+        locationManager.startUpdatingLocation()
+    }
     let weatherService = WeatherServiceImpl()
     let locationManager = CLLocationManager()
     
@@ -61,8 +69,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MainViewC
         maxTempLabel.text = "max: " + String(Int(weather.main.tempMax.rounded())) + " °C"
         humidityLabel.text = "humidity: " + String(weather.main.humidity) + "%"
         pressureLabel.text = "pressure: " + String(weather.main.pressure) + " mbar"
-        sunriseLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: weather.sys?.sunrise ?? 0))
-        sunsetLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: weather.sys?.sunset ?? 0))
+        sunriseLabel.text = "sunrise: " + dateFormatter.string(from: Date(timeIntervalSince1970: weather.sys?.sunrise ?? 0))
+        sunsetLabel.text = "sunset: " + dateFormatter.string(from: Date(timeIntervalSince1970: weather.sys?.sunset ?? 0))
         changeBackgroundImage(weather: weather)
     }
     
@@ -70,8 +78,20 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MainViewC
         let date = Date()
         if date.timeIntervalSince1970 > weather.sys?.sunset ?? 0 {
             backgroundImageView.image = UIImage(named: "night_img")
+            labels.forEach { label in
+                label.textColor = .init(red: 255/255, green: 178/255, blue: 0/255, alpha: 1)
+            }
+            buttons.forEach({ button in
+                button.tintColor = .init(red: 255/255, green: 178/255, blue: 0/255, alpha: 1)
+            })
         } else {
             backgroundImageView.image = UIImage(named: "day_img")
+            labels.forEach { label in
+                label.textColor = .init(red: 7/255, green: 3/255, blue: 55/255, alpha: 1)
+            }
+            buttons.forEach({ button in
+                button.tintColor = .init(red: 7/255, green: 3/255, blue: 55/255, alpha: 1)
+            })
         }
     }
     
